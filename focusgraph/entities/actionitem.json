@@ -1,0 +1,464 @@
+{
+    "id": "https://raw.githubusercontent.com/makanaleu/schemas/2022-02-01/focusgraph/entities/actionitem.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "ActionItem",
+    "description": "FocusGraph ActionItem entity attributes",
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "JSON schema reference"
+        },
+        "PartitionKey": {
+            "type": "string",
+            "description": "Unique identifier for the partition within a given table",
+            "examples": [
+                "SourceSystemName;SourceSystemTenant;SourceSystemUniqueID"
+            ]
+        },
+        "RowKey": {
+            "type": "string",
+            "description": "Unique identifier for an entity within a given partition"
+        },
+        "BodyContent": {
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "The content of the item"
+        },
+        "BodyContentAddress": {
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "Unique address for body content within a storage container"
+        },
+        "BodyContentContainer": {
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "Body content storage container name"
+        },
+        "BodyContentType": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "enum": [
+                        "text",
+                        "html"
+                    ]
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "The type of the content"
+        },
+        "BodyLastModifiedDateTime": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "The date and time when the item was last modified"
+        },
+        "CompletedDateTime": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "The date and time that the item was completed"
+        },
+        "CreatedDateTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The date and time that the item was created"
+        },
+        "DueDateTime": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "The date and time that the item is to be completed"
+        },
+        "IsReminderOn": {
+            "anyOf": [
+                {
+                    "type": "boolean"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "Set to true if an alert is set to remind the user of the item"
+        },
+        "ItemStatus": {
+            "type": "string",
+            "description": "Indicates the state or progress of the item",
+            "enum": [
+                "notStarted",
+                "inProgress",
+                "completed",
+                "waitingOnOthers",
+                "deferred"
+            ]
+        },
+        "ItemTitle": {
+            "type": "string",
+            "description": "A brief description of the item"
+        },
+        "LastModifiedDateTime": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "The date and time when the item was last modified"
+        },
+        "LinkedResourceApplicationName": {
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "App name of the source that is sending the linked resource"
+        },
+        "LinkedResourceDisplayName": {
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "Title of the linked resource"
+        },
+        "LinkedResourceExternalID": {
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "ID of the object that is associated with this item on the third-party/partner system"
+        },
+        "LinkedResourceWebURL": {
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "Deep link to the linked resource"
+        },
+        "PatternDayOfMonth": {
+            "anyOf": [
+                {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 31
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "The day of the month on which the event occurs (required if type is absoluteMonthly or absoluteYearly)"
+        },
+        "PatternDaysOfWeek": {
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "sunday",
+                            "monday",
+                            "tuesday",
+                            "wednesday",
+                            "thursday",
+                            "friday",
+                            "saturday"
+                        ]
+                    }
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "A collection of the days of the week on which the item occurs (required if type is weekly, relativeMonthly, or relativeYearly)"
+        },
+        "PatternFirstDayOfWeek": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "enum": [
+                        "sunday",
+                        "monday",
+                        "tuesday",
+                        "wednesday",
+                        "thursday",
+                        "friday",
+                        "saturday"
+                    ]
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "The first day of the week (required if type is weekly)"
+        },
+        "PatternInterval": {
+            "anyOf": [
+                {
+                    "type": "integer"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "The number of units between occurrences, where units can be in days, weeks, months, or years, depending on the type"
+        },
+        "PatternMonth": {
+            "anyOf": [
+                {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 12
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "The month in which the event occurs"
+        },
+        "PatternType": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "enum": [
+                        "daily",
+                        "weekly",
+                        "absoluteMonthly",
+                        "relativeMonthly",
+                        "absoluteYearly",
+                        "relativeYearly"
+                    ]
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "The recurrence pattern type"
+        },
+        "PatternWeekIndex": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "enum": [
+                        "first",
+                        "second",
+                        "third",
+                        "fourth",
+                        "last"
+                    ]
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "Specifies on which instance of the allowed days specified in daysOfWeek the event occurs, counted from the first instance in the month"
+        },
+        "RangeEndDateTime": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "The date to stop applying the recurrence pattern (required if type is endDate)"
+        },
+        "RangeNumberOfOccurrences": {
+            "anyOf": [
+                {
+                    "type": "integer",
+                    "minimium": 1
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "The number of times to repeat the item (required and must be positive if type is numbered)"
+        },
+        "RangeStartDateTime": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "The date to start applying the recurrence pattern"
+        },
+        "RangeType": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "enum": [
+                        "endDate",
+                        "noEnd",
+                        "numbered"
+                    ]
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "The recurrence range type"
+        },
+        "ReminderDateTime": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "The date and time for a reminder alert of the item to occur"
+        },
+        "SchedulingImportance": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "enum": [
+                        "low",
+                        "normal",
+                        "high"
+                    ]
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "The importance of the item"
+        },
+        "SchedulingPriority": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "enum": [
+                        "low",
+                        "normal",
+                        "high"
+                    ]
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "The priority of the item"
+        },
+        "SchedulingSeverity": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "enum": [
+                        "low",
+                        "medium",
+                        "high",
+                        "critical"
+                    ]
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "The severity of the item"
+        },
+        "SourceSystemName": {
+            "type": "string",
+            "description": "Name of the item source system or application"
+        },
+        "SourceSystemTenant": {
+            "type": "string",
+            "description": "The tenant or user account that owns the item in the source system"
+        },
+        "SourceSystemUniqueID": {
+            "type": "string",
+            "description": "The unique identifier of the item in the source system"
+        },
+        "StorageInsertAction": {
+            "type": "string",
+            "description": "Method to use when adding to storage",
+            "default": "merge",
+            "enum": [
+                "merge",
+                "replace"
+            ]
+        }
+    },
+    "required": [
+        "PartitionKey",
+        "RowKey",
+        "CreatedDateTime",
+        "ItemStatus",
+        "ItemTitle",
+        "SourceSystemName",
+        "SourceSystemTenant",
+        "SourceSystemUniqueID",
+        "StorageInsertAction"
+    ]
+}
