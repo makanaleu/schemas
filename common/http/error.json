@@ -1,0 +1,31 @@
+{
+    "id": "https://raw.githubusercontent.com/makanaleu/schemas/2022-02-01/common/http/error.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "Error",
+    "description": "Error response that contains a single property named error",
+    "type": "object",
+    "properties": {
+        "error": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "innerError": {
+                    "type": "object",
+                    "properties": {
+                        "requestId": {
+                            "type": "string"
+                        },
+                        "date": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
